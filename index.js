@@ -1,6 +1,7 @@
 const express = require('express')
 const mysql = require('mysql')
 const dotenv = require('dotenv')
+const cors = require('cors')
 
 dotenv.config({
     path: './.env'
@@ -24,6 +25,7 @@ db.connect(function (error) {
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 //Routes
 const authRoutes = require('./routes/auth/auth.js')
